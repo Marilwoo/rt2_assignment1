@@ -4,4 +4,4 @@ Package contains code in ROS
 ```
 roslaunch rt2_assignment1 sim.launch
 ```
-
+Contains also the package for ros2
