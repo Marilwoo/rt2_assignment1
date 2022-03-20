@@ -17,7 +17,7 @@ There robot is controlled from the terminal by the user. Once the program starts
   - [state_machine](https://github.com/Marilwoo/rt2_assignment1/blob/main/src/state_machine.cpp) : This node contains a server for `/user_interface`, it takes the information about the input given from the user and, depending on it, it assigns a variable to `true` or `false`. It contains also a client for `/position_server` that sends as a request the max and min values for the target position. After that it uses the client for `/go_to_point` for sending the target position and making the robot reach it.
 
 ## Services, Messages and Actions
-Both the packages contains the same three services
+Both the packages contains the same three services:
 - [Command](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/srv/Command.srv)
 - [RandomPosition](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/srv/RandomPosition.srv)
 - [Position](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/srv/Position.srv) 
