@@ -17,7 +17,7 @@ Two python nodes:
 And two cpp nodes:
 
 - [position_service](https://github.com/Marilwoo/rt2_assignment1/blob/main/src/position_service.cpp) : this node is used for selecting the random position and orientation of the target the robot has to reach. It contains a seervice for `/position_server`. It takes as a request maximum and minimum values both for x and y position and replies random values in between these two. Also it replies with a random orientation between +pi and -pi
-- [state_machine](https://github.com/Marilwoo/rt2_assignment1/blob/main/src/state_machine.cpp) : 
+- [state_machine](https://github.com/Marilwoo/rt2_assignment1/blob/main/src/state_machine.cpp) : This node contains a server for `/user_interface`, it takes the information about the input given from the user and, depending on it, it assigns a variable to `true` or `false`. It contains also a client for `/position_server` that sends as a request the max and min values for the target position. After that it uses the client for `/go_to_point` for sending the target position and making the robot reach it.
 
 
 
