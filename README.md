@@ -28,7 +28,7 @@ There are two possibilities for this package
   ```
   roslaunch rt2_assignment1 gazebo.launch
   ```
-  -The instrucions will be shown on the terminal
+  - Follow the nstrucions on the terminal
 - **Running the simulation with CoppeliaSim** :
   - download and install the [CoppeliaSim EDU software](https://coppeliarobotics.com/downloads). 
   - After that two terminals are needed, both with ros1 sourced.
