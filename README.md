@@ -1,4 +1,4 @@
-# Research Track 2 - First assignment - CoppeliaSim
+# Research Track 2 - First assignment - Action
 ##### Maria Luisa Aiachini - 4375373
 
 ## General behaviour
