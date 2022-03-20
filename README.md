@@ -29,7 +29,6 @@ There are two possibilities for this package
   roslaunch rt2_assignment1 gazebo.launch
   ```
   -The instrucions will be shown on the terminal
-
 - **Running the simulation with CoppeliaSim** :
   - download and install the [CoppeliaSim EDU software](https://coppeliarobotics.com/downloads). 
   - After that two terminals are needed, both with ros1 sourced.
@@ -42,9 +41,7 @@ There are two possibilities for this package
   ./coppeliaSim.sh
   ```
   - Open the scene so go to file -> open scene -> _package directory_ -> Coppelia_scene.ttt
-
   - Run the simulation from the program. 
-
   - Type the inputs in the dirst terminal and the robot wills tart to move and reach the target.
 
 
