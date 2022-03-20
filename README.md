@@ -27,7 +27,7 @@ Both the packages contains the same three services:
 - Move the [ROS2 package](https://github.com/Marilwoo/rt2_assignment1/tree/ros2/rt2_assignment1) into the ROS2 workspace
 - Check that the [mapping_rule.yaml](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/mapping_rule.yaml) file contains the right name for your packages
 - Clone the [ros1_bridge](https://github.com/ros2/ros1_bridge) repository into your ROS2 workspace
-- Move the three source files: [ros.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros.sh), [ros2.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros2.sh), [ros12.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros12.sh) into your root folder and check that the workspace's names are correct, if not, change them.
+- Move the three source files: [ros.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros.sh), [ros2.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros2.sh), [ros12.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros12.sh) into your root folder and check that the workspaces' names are correct, if not, change them.
 - Go into your ros1 workspace and build the packages with.
 ```
 catkin_make
