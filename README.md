@@ -6,10 +6,17 @@ The package contains the nodes and the simulation environment for controlling a 
 
 
 ## Nodes description
+The package contains 4 nodes, two python nodes
+- go_to_point
+- user_interface
+and two cpp nodes
+-
+- position_service
+- state_machine
 
 
 
-
+## How to run
 
 To launch the node, please run:
 ```
