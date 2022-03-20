@@ -23,6 +23,11 @@ Both the packages contains the same three services
 - [Position](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/srv/Position.srv) 
 
 ## How to run
+- Clone this repository into your ROS1 workspace
+- Move the [ROS2 package](https://github.com/Marilwoo/rt2_assignment1/tree/ros2/rt2_assignment1) into the ROS2 workspace
+- Check that the [mapping_rule.yaml](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/mapping_rule.yaml) file contains the right name for your packages
+- Clone the [ros1_bridge](https://github.com/ros2/ros1_bridge) repository into your ROS2 workspace
+- Move the three source files: [ros.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros.sh), [ros2.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros2.sh), [ros12.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros12.sh) into your root folder and check that the workspace's names are correct, if not, change them.
 At first you need to clone this repository in a ros workspace. Build the package in a ros1 sourced terminal running
 ```
 catkin_make
