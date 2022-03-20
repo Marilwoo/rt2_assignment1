@@ -39,7 +39,10 @@ In the second one, go inside the CoppeliaSim folder and run
 ./coppeliaSim.sh
 ```
 Once the program has started you need to open the sceen so go to file -> open scene -> _package directory_ -> Coppelia_scene.ttt
-Once opened, run the simulation from the program. When the simulation starts it is possible to type the inputs in the dirst terminal and the robot wills tart to move and reach the target.
+
+Once opened, run the simulation from the program. 
+
+When the simulation starts it is possible to type the inputs in the dirst terminal and the robot wills tart to move and reach the target.
 
 
 
