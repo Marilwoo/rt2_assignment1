@@ -23,12 +23,12 @@ And two cpp nodes:
 
 ## How to run
 There are two possibilities for this package
-- **Running the simulation with Gazebo**: for this option it is sufficient to run in a terminal with ros1 sourced:
+- **Running the simulation with Gazebo** : for this option it is sufficient to run in a terminal with ros1 sourced:
 ```
 roslaunch rt2_assignment1 sim.launch
 ```
 and the instrucions will be shown on the terminal
-- **Running the simulation with CoppeliaSim**:
+- **Running the simulation with CoppeliaSim** :for this option it is needed to download the [CoppeliaSim software](https://coppeliarobotics.com/downloads)
 
 
 
