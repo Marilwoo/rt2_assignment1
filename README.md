@@ -7,7 +7,7 @@ The package contains the nodes and the simulation environment for controlling a 
 
 ## Nodes description
 The package contains 4 nodes, two python nodes
-- go_to_point : this node contains a publisher to the topic '/cmd_vel', a subscriber to the topic /odom and a service for /go_to_point
+- [go_to_point](https://github.com/Marilwoo/rt2_assignment1/blob/main/scripts/go_to_point.py) : this node contains a publisher to the topic `/cmd_vel`, a subscriber to the topic `/odom` and a service for `/go_to_point`. The first one is used for publishing linear and angular velocity the robot has to move with; the second one is to retreive the actual position of the robot and the third one is used for receiving the target position the robot has to reach.
 - user_interface : 
 and two cpp nodes
 - position_service : 
