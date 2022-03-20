@@ -25,10 +25,20 @@ And two cpp nodes:
 There are two possibilities for this package
 - **Running the simulation with Gazebo** : for this option it is sufficient to run in a terminal with ros1 sourced:
 ```
-roslaunch rt2_assignment1 sim.launch
+roslaunch rt2_assignment1 gazebo.launch
 ```
 and the instrucions will be shown on the terminal
-- **Running the simulation with CoppeliaSim** :for this option it is needed to download the [CoppeliaSim software](https://coppeliarobotics.com/downloads)
+- **Running the simulation with CoppeliaSim** :for this option it is needed to download and install the [CoppeliaSim EDU software](https://coppeliarobotics.com/downloads). After that two terminals are needed, both with ros1 sourced.
+
+In the first one launch
+```
+roslaunch rt2_assignment1 coppelia.launch
+```
+In the second one, go inside the CoppeliaSim folder and run
+```
+./coppeliaSim.sh
+```
+Once the program has started you need to open the sceen so go to file -> open scene -> <package directory> -> Coppelia_scene.ttt
 
 
 
