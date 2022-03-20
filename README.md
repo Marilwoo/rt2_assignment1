@@ -1,5 +1,5 @@
 # Research Track 2 - First assignment - CoppeliaSim
-#### Maria Luisa Aiachini - 4375373
+##### Maria Luisa Aiachini - 4375373
 
 ## General behaviour
 The package contains the nodes and the simulation environment for controlling a mobile robot both in the Gazebo simulation environment and in CoppeliaSim.
