@@ -23,9 +23,6 @@ And two cpp nodes:
 This package contains two services and one action
 - Services:
   - [Command](https://github.com/Marilwoo/rt2_assignment1/blob/action/srv/Command.srv)
-    > string command
-    > ---
-    > bool ok
   - [RandomPosition](https://github.com/Marilwoo/rt2_assignment1/blob/action/srv/RandomPosition.srv)
 - Action: 
   - [Planning](https://github.com/Marilwoo/rt2_assignment1/blob/action/action/Planning.action) 
