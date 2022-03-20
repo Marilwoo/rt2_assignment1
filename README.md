@@ -22,9 +22,16 @@ And two cpp nodes:
 
 
 ## How to run
-
-To launch the node, please run:
+There are two possibilities for this package
+- Running the simulation with Gazebo:
+  For this option, is is sufficient to run
 ```
 roslaunch rt2_assignment1 sim.launch
 ```
+and the instrucions will be shown on the terminal
+- Running the simulation with CoppeliaSim:
+
+
+
+
 
