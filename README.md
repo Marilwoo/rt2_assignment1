@@ -22,6 +22,11 @@ And two cpp nodes:
 
 
 ## How to run
+At first you need to clone this repository in a ros workspace. Build the package in a ros1 sourced terminal running
+```
+catkin_make
+```
+
 There are two possibilities for this package
 - **Running the simulation with Gazebo** : 
   - Run in a terminal with ros1 sourced:
