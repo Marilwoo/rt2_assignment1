@@ -36,7 +36,7 @@ catkin_make
  ```
  roslaunch rt2_assignment1 sim.launch
  ```
-- Follow the nstrucions on the terminal
+- Follow the instrucions on the terminal
 
 
 
