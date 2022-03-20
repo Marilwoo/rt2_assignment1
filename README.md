@@ -28,16 +28,35 @@ Both the packages contains the same three services
 - Check that the [mapping_rule.yaml](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/rt2_assignment1/mapping_rule.yaml) file contains the right name for your packages
 - Clone the [ros1_bridge](https://github.com/ros2/ros1_bridge) repository into your ROS2 workspace
 - Move the three source files: [ros.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros.sh), [ros2.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros2.sh), [ros12.sh](https://github.com/Marilwoo/rt2_assignment1/blob/ros2/ros12.sh) into your root folder and check that the workspace's names are correct, if not, change them.
-At first you need to clone this repository in a ros workspace. Build the package in a ros1 sourced terminal running
+- Go into your ros1 workspace and build the packages with.
 ```
 catkin_make
 ```
-- Run in a terminal with ros1 sourced:
+- Go into your ROS2 workspace and build the packages skipping the ros1_bridge
  ```
- roslaunch rt2_assignment1 sim.launch
+colcon build --packages-skip ros1_bridge
  ```
-- Follow the nstrucions on the terminal
-
+- Build the ros1_bridge package (this may take a while)
+```
+colcon build --packages-select ros1_bridge --cmake-force-configure
+ ```
+- At this point you can run the nodes: you will need three terminals
+  - In the first one run:
+   ```
+   source ros2.sh
+   ros2 launch rt2_assignment1 sim_launch.py
+   ```
+   - In the second one run:
+   ```
+   source ros12.sh
+   ros2 run ros1_bridge dynamic_bridge
+   ```
+   - In the third one run:
+   ```
+   source ros.sh
+   roslaunch rt2_assignment1 sim.launch
+   ```
+- Now that everything is running you will find in the ROS1 terminal the instructions and you will be able to start the robot by typing the input.
 
 
 
