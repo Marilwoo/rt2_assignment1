@@ -2,6 +2,7 @@ import rospy
 import time
 from rt2_assignment1.srv import Command
 
+#Interface for getting the user inputs
 def main():
     rospy.init_node('user_interface')
     ui_client = rospy.ServiceProxy('/user_interface', Command)
