@@ -71,7 +71,6 @@ def fix_yaw(des_pos):
     pub_.publish(twist_msg)
     # state change conditions
     if math.fabs(err_yaw) <= yaw_precision_2_:
-        #print ('Yaw error: [%s]' % err_yaw)
         change_state(1)
 
 
@@ -92,12 +91,10 @@ def go_straight_ahead(des_pos):
         twist_msg.angular.z = kp_a*err_yaw
         pub_.publish(twist_msg)
     else: # state change conditions
-        #print ('Position error: [%s]' % err_pos)
         change_state(2)
 
     # state change conditions
     if math.fabs(err_yaw) > yaw_precision_:
-        #print ('Yaw error: [%s]' % err_yaw)
         change_state(0)
 
 def fix_final_yaw(des_yaw):
@@ -113,7 +110,6 @@ def fix_final_yaw(des_yaw):
     pub_.publish(twist_msg)
     # state change conditions
     if math.fabs(err_yaw) <= yaw_precision_2_:
-        #print ('Yaw error: [%s]' % err_yaw)
         change_state(3)
         
 def done():
@@ -123,7 +119,8 @@ def done():
     pub_.publish(twist_msg)
     success = True
     act_s.set_succeeded()
-    
+
+# Callback for the action server
 def go_to_point(goal):
 	global state_, desired_position_, act_s, success
 	print("received")
@@ -131,8 +128,6 @@ def go_to_point(goal):
 	desired_position_.x = goal.target_pose.pose.position.x
 	print ("desired position x: %s" %desired_position_.x)
 	desired_position_.y = goal.target_pose.pose.position.y
-    
-    #TODO funziona questa cosa?
 	des_yaw = goal.target_pose.pose.orientation.z
     
 	change_state(0)
@@ -165,7 +160,7 @@ def main():
 	pub_ = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
 	sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
     
-	#service = rospy.Service('/go_to_point', Position, go_to_point)
+	# Defining the ation server for the /go_to_point
 	act_s = actionlib.SimpleActionServer('/go_to_point', rt2_assignment1.msg.PlanningAction, go_to_point, auto_start=False)
 	act_s.start()
 	rospy.spin()
