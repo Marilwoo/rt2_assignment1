@@ -24,13 +24,16 @@ public:
   position_server(const rclcpp::NodeOptions & options)
   : Node("random_position", options)
   {
+    // Defining the service
     service_ = this->create_service<RandomPosition>("/position_server", std::bind(&position_server::handle_service, this, _1, _2, _3));
   }
   
   private:
+  // Function for computing the random value between two numbers
   double randMToN(double M, double N)
   {return M + (rand() / ( RAND_MAX / (N-M) ) ) ; }
   
+  // Callback for the service
   void handle_service(
   const std::shared_ptr<rmw_request_id_t> request_header,
   const std::shared_ptr<RandomPosition::Request> request,
@@ -38,7 +41,7 @@ public:
   {
   
   (void)request_header;
-  
+  // Assigning the computed random values to the response of the client
   response->x = randMToN(request->x_min, request->x_max);
   response->y = randMToN(request->y_min, request->y_max);
   response->theta = randMToN(-3.14, 3.14);  
