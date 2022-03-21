@@ -59,7 +59,7 @@ class state_machine  : public rclcpp::Node
       
       	if (this->start) {
       	
-        //std::cout <<"start: " <<start <<std::endl;
+	// Defining max and min values for the RandomPosition service
         auto random_position = std::make_shared<RandomPosition::Request>();
         random_position->x_max = 5.0;
         random_position->x_min = -5.0;
@@ -69,7 +69,8 @@ class state_machine  : public rclcpp::Node
          auto response_callback = [this](rclcpp::Client<RandomPosition>::SharedFuture future) {
           auto goal_position = std::make_shared<Position::Request>();
           this->random_position_response=future.get();
-          
+	  
+          // Assigning the random position response to the request for the Positio service, to make the robot move toward the target
           goal_position->x = random_position_response->x;
           goal_position->y = random_position_response->y;
           goal_position->theta = random_position_response->theta;
@@ -78,12 +79,8 @@ class state_machine  : public rclcpp::Node
           auto response_callback2 = [this](rclcpp::Client<Position>::SharedFuture future2)
             {
             (void)future2;
-           // this->position_response = future2.get();
             std::cout<< "Goal position reached" << std::endl;
-           // if (waiting == true) {
-            //start = false;
-            //waiting = false; 
-	   // }
+	    
            this->call_clients();
             };
             auto result_future2 = client2_->async_send_request(goal_position, response_callback2);
@@ -102,6 +99,8 @@ class state_machine  : public rclcpp::Node
        const std::shared_ptr<user_interface::Request> request,
        const std::shared_ptr<user_interface::Response> response)
        {
+       // Assigning the user interface request to the variable for the state machine. To make the robot move
+       // or stop once the target is reached
        (void)request_header;
        if (request->command == "start")
        {
