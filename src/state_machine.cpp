@@ -7,6 +7,7 @@
 bool start = false;
 bool stopped = true;
 
+// Assigning the response from the user interface to a variable
 bool user_interface(rt2_assignment1::Command::Request &req, rt2_assignment1::Command::Response &res){
     if (req.command == "start"){
     	start = true;
@@ -25,10 +26,10 @@ int main(int argc, char **argv)
    ros::NodeHandle n1;
    ros::ServiceServer service= n.advertiseService("/user_interface", user_interface);
    ros::ServiceClient client_rp = n1.serviceClient<rt2_assignment1::RandomPosition>("/position_server");
+   // Defining the action client
    actionlib::SimpleActionClient<rt2_assignment1::PlanningAction> ac("/go_to_point");
    
- //  ros::ServiceClient client_p = n.serviceClient<rt2_assignment1::Position>("/go_to_point");
-   
+   // Defining the max and min values for x and y to compute the random in between
    rt2_assignment1::RandomPosition rp;
    rp.request.x_max = 5.0;
    rp.request.x_min = -5.0;
@@ -42,6 +43,7 @@ int main(int argc, char **argv)
    	{
    		if (stopped == true) 
    		{
+		// Calling the random position service
    		client_rp.call(rp);
    		rt2_assignment1::PlanningGoal goal;
    		goal.target_pose.pose.position.x = rp.response.x;
