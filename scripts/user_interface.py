@@ -14,7 +14,7 @@ def main():
             ui_client("start")
             x = int(input("\nPress 0 to stop the robot "))
         else:
-            print("The robot is stopping")
+            print("\nThe robot is stopping")
             ui_client("stop")
             x = int(input("\nPress 1 to start the robot "))
             
