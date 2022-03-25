@@ -29,6 +29,8 @@ ub_a = 0.6
 lb_a = -0.5
 ub_d = 0.6
 
+# Callback for odometry subscriber it takes current position and
+# orientation of the robot
 def clbk_odom(msg):
     global position_
     global yaw_
@@ -45,18 +47,19 @@ def clbk_odom(msg):
     euler = transformations.euler_from_quaternion(quaternion)
     yaw_ = euler[2]
 
-
+# Changing the state by assigning to the global variable state_
 def change_state(state):
     global state_
     state_ = state
     print ('State changed to [%s]' % state_)
 
-
+# Normalizing the angle 
 def normalize_angle(angle):
     if(math.fabs(angle) > math.pi):
         angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
     return angle
 
+# Fixing the yaw of the robot
 def fix_yaw(des_pos):
     desired_yaw = math.atan2(des_pos.y - position_.y, des_pos.x - position_.x)
     err_yaw = normalize_angle(desired_yaw - yaw_)
@@ -124,16 +127,20 @@ def done():
 def go_to_point(goal):
 	global state_, desired_position_, act_s, success
 	print("received")
-    
+    	
+	# Getting the desired position and orientation
 	desired_position_.x = goal.target_pose.pose.position.x
 	print ("desired position x: %s" %desired_position_.x)
 	desired_position_.y = goal.target_pose.pose.position.y
 	des_yaw = goal.target_pose.pose.orientation.z
-    
+    	
+	# Changing the state
 	change_state(0)
 	success = True
     
 	while True:
+		# Checking if the request is preempted. If it is assigning the velocities to 0
+		# to stop immediately the robot
 		if act_s.is_preempt_requested():
 			rospy.loginfo('Goal was preempted')
 			twist_msg = Twist()
@@ -143,6 +150,7 @@ def go_to_point(goal):
 			act_s.set_preempted()
 			success = False
 			break
+		# Checking the state and going in the corresponding function
 		elif state_ == 0:
 			fix_yaw(desired_position_)
 		elif state_ == 1:
