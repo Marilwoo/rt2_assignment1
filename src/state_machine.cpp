@@ -43,7 +43,7 @@ int main(int argc, char **argv)
    	{
    		if (stopped == true) 
    		{
-		// Calling the random position service
+		// Calling the random position service to obtain the target position and orientation
    		client_rp.call(rp);
    		rt2_assignment1::PlanningGoal goal;
    		goal.target_pose.pose.position.x = rp.response.x;
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
    		stopped = false;
 		}   
 		else 
-		{
+		{	// Wnhen the targer is reached it is printed to the terminal
 			if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
 			{
 				stopped = true;
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 		}
    	}
    	else
-   	{	
+   	{	// When the user wants to stop the robot the goal is cancelled
    		if (stopped == false)
    		{
    			ac.cancelAllGoals();
