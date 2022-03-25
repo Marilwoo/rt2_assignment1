@@ -1,5 +1,3 @@
-//TODO quello nuovo
-
 #include <chrono>
 #include <cinttypes>
 #include <inttypes.h>
@@ -41,7 +39,7 @@ public:
   {
   
   (void)request_header;
-  // Assigning the computed random values to the response of the client
+  // Assigning the computed random values to the response for the client
   response->x = randMToN(request->x_min, request->x_max);
   response->y = randMToN(request->y_min, request->y_max);
   response->theta = randMToN(-3.14, 3.14);  
