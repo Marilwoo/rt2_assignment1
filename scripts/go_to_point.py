@@ -150,7 +150,7 @@ def go_to_point(goal):
 			act_s.set_preempted()
 			success = False
 			break
-		# Checking the state and going in the corresponding function
+		# Checking the state and calling the corresponding function
 		elif state_ == 0:
 			fix_yaw(desired_position_)
 		elif state_ == 1:
