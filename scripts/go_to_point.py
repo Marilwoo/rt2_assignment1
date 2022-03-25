@@ -25,6 +25,8 @@ ub_a = 0.6
 lb_a = -0.5
 ub_d = 0.6
 
+# Callback for odometry subscriber it takes current position and
+# orientation of the robot
 def clbk_odom(msg):
     global position_
     global yaw_
@@ -41,18 +43,19 @@ def clbk_odom(msg):
     euler = transformations.euler_from_quaternion(quaternion)
     yaw_ = euler[2]
 
-
+# Changing the state by assigning to the global variable state_
 def change_state(state):
     global state_
     state_ = state
     print ('State changed to [%s]' % state_)
 
-
+# Normalizing the angle 
 def normalize_angle(angle):
     if(math.fabs(angle) > math.pi):
         angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
     return angle
 
+# Fixing the yaw of the robot
 def fix_yaw(des_pos):
     desired_yaw = math.atan2(des_pos.y - position_.y, des_pos.x - position_.x)
     err_yaw = normalize_angle(desired_yaw - yaw_)
@@ -67,7 +70,6 @@ def fix_yaw(des_pos):
     pub_.publish(twist_msg)
     # state change conditions
     if math.fabs(err_yaw) <= yaw_precision_2_:
-        #print ('Yaw error: [%s]' % err_yaw)
         change_state(1)
 
 
@@ -88,12 +90,10 @@ def go_straight_ahead(des_pos):
         twist_msg.angular.z = kp_a*err_yaw
         pub_.publish(twist_msg)
     else: # state change conditions
-        #print ('Position error: [%s]' % err_pos)
         change_state(2)
 
     # state change conditions
     if math.fabs(err_yaw) > yaw_precision_:
-        #print ('Yaw error: [%s]' % err_yaw)
         change_state(0)
 
 def fix_final_yaw(des_yaw):
@@ -107,11 +107,12 @@ def fix_final_yaw(des_yaw):
         elif twist_msg.angular.z < lb_a:
             twist_msg.angular.z = lb_a
     pub_.publish(twist_msg)
+    
     # state change conditions
     if math.fabs(err_yaw) <= yaw_precision_2_:
-        #print ('Yaw error: [%s]' % err_yaw)
         change_state(3)
-        
+
+# Assigning the velocities to zero to stop the robot
 def done():
     twist_msg = Twist()
     twist_msg.linear.x = 0
@@ -125,6 +126,7 @@ def go_to_point(req):
     des_yaw = req.theta
     change_state(0)
     while True:
+        # Checking the state variable and calling the corresponding function
     	if state_ == 0:
     		fix_yaw(desired_position)
     	elif state_ == 1:
