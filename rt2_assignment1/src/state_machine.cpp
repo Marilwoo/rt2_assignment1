@@ -1,4 +1,3 @@
-//TODO modifica questo
 #include <chrono>
 #include <cinttypes>
 #include <inttypes.h>
@@ -70,7 +69,7 @@ class state_machine  : public rclcpp::Node
           auto goal_position = std::make_shared<Position::Request>();
           this->random_position_response=future.get();
 	  
-          // Assigning the random position response to the request for the Positio service, to make the robot move toward the target
+          // Assigning the random position response to the request for the Position service, to make the robot move toward the target
           goal_position->x = random_position_response->x;
           goal_position->y = random_position_response->y;
           goal_position->theta = random_position_response->theta;
@@ -81,6 +80,7 @@ class state_machine  : public rclcpp::Node
             (void)future2;
             std::cout<< "Goal position reached" << std::endl;
 	    
+	   // Calling again the target to make the robot restart once reached the target
            this->call_clients();
             };
             auto result_future2 = client2_->async_send_request(goal_position, response_callback2);
@@ -89,8 +89,7 @@ class state_machine  : public rclcpp::Node
         auto result_future = client1_->async_send_request(random_position, response_callback);
       }
       else {
-      //std::cout<<"qua"<< std::endl;
-      call_clients();
+      // If "start" is false it doesn't do anything
       }
       }
           
@@ -105,15 +104,14 @@ class state_machine  : public rclcpp::Node
        if (request->command == "start")
        {
 	 this->start  = true;	
-	 //response->ok = true;
 	 std::cout<<"Start = " << start <<std::endl;
        }
        else
        {
          this->start = false;
-        //response->ok = true;
          std::cout<<"Start = " << start <<std::endl;
        }
+       // Givng the response to the user interface and calling the function to make the robot start
        response->ok = true;
        this->call_clients();
               
