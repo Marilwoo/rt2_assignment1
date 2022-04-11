@@ -36,7 +36,7 @@ catkin_make
  ```
 colcon build --packages-skip ros1_bridge
  ```
-- Build the ros1_bridge package (this may take a while)
+- Build the ros1_bridge package, again in the ROS2 workspace (this may take a while)
 ```
 colcon build --packages-select ros1_bridge --cmake-force-configure
  ```
