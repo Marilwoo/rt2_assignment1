@@ -18,7 +18,6 @@ def main():
         else:
             print("Please wait, the robot is going to stop when the position will be reached")
             ui_client("stop")
-            print("qualcosa, cazzooo!")
             x = int(input("\nPress 1 to start the robot "))
             
 if __name__ == '__main__':
