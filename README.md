@@ -2,7 +2,7 @@
 ##### Maria Luisa Aiachini - 4375373
 
 ## General behaviour
-In this package you will find both [RIS1 package](https://github.com/Marilwoo/rt2_assignment1/tree/ros2) and [ROS2 package](https://github.com/Marilwoo/rt2_assignment1/tree/ros2/rt2_assignment1) needed for this assignement. These packages contains the nodes and the simulation environment for controlling a mobile robot in the Gazebo simulation environment.
+In this package you will find both [ROS1 package](https://github.com/Marilwoo/rt2_assignment1/tree/ros2) and [ROS2 package](https://github.com/Marilwoo/rt2_assignment1/tree/ros2/rt2_assignment1) needed for this assignement. These packages contains the nodes and the simulation environment for controlling a mobile robot in the Gazebo simulation environment.
 There robot is controlled from the terminal by the user. Once the program starts the user will put as an input "1" for make the robot move toward a random position. The robot will reach the target and once it is reached it will automatically have another target to reach. If the user wants to stop the robot it is sufficient to type "0" in the terminal. The robot will stop once the current target is reached. If the user types "1" again the behaviour will start from the beginning.
 
 
