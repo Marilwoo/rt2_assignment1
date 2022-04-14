@@ -120,7 +120,6 @@ class state_machine  : public rclcpp::Node
        rclcpp::Client<RandomPosition>::SharedPtr client1_;
        rclcpp::Client<Position>::SharedPtr client2_;
        std::shared_ptr<rt2_assignment1::srv::RandomPosition::Response> random_position_response;
-       std::shared_ptr<rt2_assignment1::srv::Position::Response> position_response;
 };
 }
 
